@@ -66,3 +66,88 @@
   content: ""; /* 가상엘리먼트 before 를사용해서 bullet 기호설정 */
   margin-right: 0.5em;
 }
+
+
+/* message-list */
+.user-item{
+  display: flex; 
+  /* flex 만 적용하면 이미지가 찌그러지는걸 볼 수 있다. 
+  default로 shrink 가 1로 설정되어 있어서 그렇다*/  
+  margin-bottom: 2em;
+}
+.user-photo {
+  flex-shrink: 0; /*shrink 를 찌그러지지 않게할 el에다가 줘야하는구나 여기다가 줘야 하는구나*/
+  width: 50px;
+  height: 50px;
+  margin-right: 0.5em;
+  border: 2px solid #555;
+  border-radius: 50%;
+  background-color: gold;
+  background-repeat: no-repeat;
+  /* background-position: center; */ /* 지금 이미지는 center안하는게 나은듯*/
+  background-size: cover; 
+}
+
+/* modal */
+.modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  position:fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dialog{
+  width: 50vw;
+  padding: 2em;
+  border-radius: 1em;
+  background: white;
+}
+
+/*card-list*/
+
+.card-item{
+  margin-bottom: 2rem;
+}
+
+
+.card-image{/*img 처리는 백그라운드 이미지로 처리하는게 좋다는데... 뭔차인지는 잘 모르겠.../*/
+  background: lightgray;
+  height: 0px; /* 백그라운드 이미지로 지정하면 이렇게 영역을 설정해줘야지 백그라운드 범위가 설정되고 이미지가 보인다. */
+  padding-bottom: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-image img{
+  display: none;
+}
+
+.card-desc{
+  padding: 1em;
+  background-color: ivory;
+}
+
+
+@media (min-width: 600px) { /* 600px 이상일 때*/
+  .card-list{
+    display: flex;
+    flex-wrap: wrap; /* 범위 벗어나면 알아서 떨어지게 */
+    /* justify-content: space-between; */
+
+    /* 여기서 -1rem 하는 이유가 
+    .card-item 에서 padding 값을 줬는데 이렇게 하면
+    화면양쪽에 여백이 생기는데 이걸 상쇄 시킬려고  */
+    margin: 0 -1rem;
+  }
+  
+  .card-item{
+    width:50%;
+    padding: 0 1rem;
+  }
+}
